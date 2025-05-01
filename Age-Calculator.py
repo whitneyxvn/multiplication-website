@@ -9,5 +9,5 @@ current_age = current_year - birth_year
 future_age = future_year - birth_year
 
 print("\nHi " + name + "!")
-print("You are currently", current_age, "years old.")
-print("In the year", future_year, "you will be", future_age, "years old.")
+print("You are currently ", current_age, " years old.")
+print("In the year ", future_year, " you will be", future_age, " years old.")
