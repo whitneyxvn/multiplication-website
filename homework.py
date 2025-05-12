@@ -26,19 +26,11 @@ def level_2():
     # Level 2: Math Puzzle
     score = 0
     for _ in range(3):
-        num1 = random.randint(1, 10)
-        num2 = random.randint(1, 10)
-        operation = random.choice(['+', '-', '*'])
-        
-        if operation == '+':
-            correct_answer = num1 + num2
-            question = f"What is {num1} + {num2}?"
-        elif operation == '-':
-            correct_answer = num1 - num2
-            question = f"What is {num1} - {num2}?"
-        else:
-            correct_answer = num1 * num2
-            question = f"What is {num1} * {num2}?"
+        num1 = (1, 10)
+        num2 = (1, 10)
+    
+        correct_answer = num1 - num2
+        question = f"What is {num1} * {num2}?"
         
         # Get player answer
         try:
