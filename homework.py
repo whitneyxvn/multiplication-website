@@ -1,49 +1,106 @@
-first_name = "whitney"
-last_name = "sonuyi"
-age = 15
-school = "leigh academy"
-favorite_color = "Blue"
-best_subject = "english"
+def welcome_screen():
+    # Greet the player and get their name and age
+    name = input("What is your name? ")
+    age = input(f"Hi {name}, how old are you? ")
+    print(f"\nWelcome to the Math Challenge Game, {name}!\n")
+    return name
 
-print(f"Hello, my name is {first_name} {last_name}.")
-print(f"I am {age} years old and I attend {school}.")
-print(f"My favorite color is {favorite_color} and I love {best_subject}.")
- 
-# Initial values
-x = "Apple"
-y = "Banana"
+def level_1():
+    # Level 1: Number Casting Challenge
+    number = input("Enter a number between 10 and 99: ")
+    
+    try:
+        number = int(number)  # Convert to integer
+        if 10 <= number <= 99:
+            result = number + 5
+            print(f"Adding 5 to your number: {result}\n")
+            return True
+        else:
+            print("Please enter a number between 10 and 99.")
+            return False
+    except ValueError:
+        print("That's not a valid number!")
+        return False
 
-# Swap values
-x, y = y, x
+def level_2():
+    # Level 2: Math Puzzle
+    score = 0
+    for _ in range(3):
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, 10)
+        operation = random.choice(['+', '-', '*'])
+        
+        if operation == '+':
+            correct_answer = num1 + num2
+            question = f"What is {num1} + {num2}?"
+        elif operation == '-':
+            correct_answer = num1 - num2
+            question = f"What is {num1} - {num2}?"
+        else:
+            correct_answer = num1 * num2
+            question = f"What is {num1} * {num2}?"
+        
+        # Get player answer
+        try:
+            player_answer = int(input(question + " → User: "))
+            if player_answer == correct_answer:
+                print("✅ Correct!\n")
+                score += 1
+            else:
+                print(f"❌ Incorrect. The answer was {correct_answer}\n")
+        except ValueError:
+            print("Invalid input, please enter a number.")
+    
+    return score
 
-# Print swapped values
-print(f"x is now {x}")
-print(f"y is now {y}")
+def level_3():
+    # Level 3: Mystery Type Guesser
+    # Define variables
+    age = 15
+    height = 163.5
+    is_winner = True
+    
+    # Ask the user to guess data types
+    guesses = {
+        'age': input(f"What data type is the variable 'age' (int, float, bool)? ").strip().lower(),
+        'height': input(f"What data type is the variable 'height' (int, float, bool)? ").strip().lower(),
+        'is_winner': input(f"What data type is the variable 'is_winner' (int, float, bool)? ").strip().lower()
+    }
+    
+    # Check if the guesses are correct
+    score = 0
+    if guesses['age'] == 'int' and type(age) == int:
+        score += 1
+    if guesses['height'] == 'float' and type(height) == float:
+        score += 1
+    if guesses['is_winner'] == 'bool' and type(is_winner) == bool:
+        score += 1
 
+    return score
 
-# Part 3: Smart Calculator
+def final_score_report(name, score, bonus_points):
+    # Final score report
+    total_score = score + bonus_points
+    print(f"\nGreat job, {name}! You got {score} out of 3 math questions right and earned {bonus_points} bonus point(s) for guessing the data types correctly. Total Score: {total_score}/4.")
 
-# Variables
-a = 10
-b = 5
-c = 2
+def main():
+    # Start the game
+    name = welcome_screen()
+    
+    # Level 1: Number Casting Challenge
+    if not level_1():
+        print("You failed Level 1. Game Over!")
+        return
+    
+    # Level 2: Math Puzzle
+    math_score = level_2()
 
-# Perform calculations and print results
-print(f"The sum of a and b is {a + b}")
-print(f"The subtraction of b from a is {a - b}")
-print(f"The multiplication of a, b, and c is {a * b * c}")
-print(f"The division of a by c is {a / c}")
- 
+    # Level 3: Mystery Type Guesser
+    type_score = level_3()
 
-# Part 4: User Input for Calculation
+    # Final Score
+    final_score_report(name, math_score, type_score)
 
-# User input
-a = int(input("Enter the first number (a): "))
-b = int(input("Enter the second number (b): "))
-c = int(input("Enter the third number (c): "))
-
-# Perform calculations and print results
-print(f"The sum of a and b is {a + b}")
-print(f"The subtraction of b from a is {a - b}")
-print(f"The multiplication of a, b, and c is {a * b * c}")
-print(f"The division of a by c is {a / c}")
+# Run the game
+if __name__ == "__main__":
+    main()
