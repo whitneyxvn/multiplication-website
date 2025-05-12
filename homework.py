@@ -1,3 +1,4 @@
+import random
 def welcome_screen():
     # Greet the player and get their name and age
     name = input("What is your name? ")
@@ -26,10 +27,10 @@ def level_2():
     # Level 2: Math Puzzle
     score = 0
     for _ in range(3):
-        num1 = (1, 10)
-        num2 = (1, 10)
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, 10)
     
-        correct_answer = num1 - num2
+        correct_answer = num1 * num2
         question = f"What is {num1} * {num2}?"
         
         # Get player answer
@@ -75,7 +76,7 @@ def final_score_report(name, score, bonus_points):
     total_score = score + bonus_points
     print(f"\nGreat job, {name}! You got {score} out of 3 math questions right and earned {bonus_points} bonus point(s) for guessing the data types correctly. Total Score: {total_score}/4.")
 
-def main():
+def font():
     # Start the game
     name = welcome_screen()
     
@@ -95,4 +96,4 @@ def main():
 
 # Run the game
 if __name__ == "__main__":
-    main()
+ font()
