@@ -49,21 +49,21 @@ x = 10
 y = 12.5
 z = True
 
-guess_x = input("What is the type of x (int, float, bool)? ")
+guess_x = input("What is the type of 4 (int, float, bool)? ")
 if guess_x.lower() == "int":
     print("🧠 Correct!")
     score += 1
 else:
     print("🧠 Incorrect!")
 
-guess_y = input("What is the type of y (int, float, bool)? ")
+guess_y = input("What is the type of 5.3 (int, float, bool)? ")
 if guess_y.lower() == "float":
     print("🧠 Correct!")
     score += 1
 else:
     print("🧠 Incorrect!")
 
-guess_z = input("What is the type of z (int, float, bool)? ")
+guess_z = input("What is the type of true/false (int, float, bool)? ")
 if guess_z.lower() == "bool":
     print("🧠 Correct!")
     score += 1
