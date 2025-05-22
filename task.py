@@ -27,7 +27,7 @@ short_title = formatted_title[:20] + "..." if len(formatted_title) > 20 else for
 formatted_author = author.title()
 
 # Clean the summary
-clean_summary = summary.replace("bad", "").replace("boring", "").strip()
+clean_summary = summary.replace("bad", " ").replace("boring", " ").strip()
 
 # Format the quote using escape characters
 formatted_quote = f"\t\"{quote}\""
