@@ -1,6 +1,6 @@
 # Essay Buddy - A Smart Sentence Checker
-
-while True:
+trial_count = 0
+def my_function():
     # Ask for user's name
     name = input("What's your name? ").capitalize()
 
@@ -42,8 +42,15 @@ while True:
     # Show a success message nicely centered
     print("\n" + "✅ Essay Checked Successfully ✅".center(50, "⭐") + "\n")
 
-    # Ask if user wants to try again
-    retry = input("Do you want to check another sentence? (yes/no): ").strip().lower()
-    if retry != "yes":
-        print("Thanks for using Essay Buddy. Goodbye!")
-        break
+
+my_function() 
+
+# Ask if user wants to try again
+if trial_count == 0:
+ retry = input("Do you want to check another sentence? (yes/no): ").strip().lower()
+ if retry != "yes":
+  print("Thanks for using Essay Buddy. Goodbye!")
+ else: 
+  trial_count = 1
+  my_function()
+ 
